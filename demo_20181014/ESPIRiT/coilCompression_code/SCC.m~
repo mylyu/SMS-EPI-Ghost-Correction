@@ -1,0 +1,31 @@
+function [res,V] = SCC(DATA)
+% [res] = SCC(DATA)
+%
+% Coil Compression using a single compression matrix. Based on Huang et.
+% al, MRM 2008;26:133-141.
+% The function only project the coils onto new virtual coils where
+% the most important coils are the first ones. 
+%
+%
+%  Inputs:
+%           DATA - a 4D matrix representing [Kx Ky Kz Coils] data
+%                   or a 3D matrix representing [Kx Ky COils]
+%           
+%
+%  Outputs:
+%           res - returned data that is rotated to the compressed space.
+%           V   - the projection matrix     
+%
+% See:
+%       calcGCCMtx,  calcECCMtx, alignCCMtx, CC
+%
+%
+% Example Use compressing from 8->4 channels :
+%
+%       load brain_8ch
+%       calib = crop(DATA,[24,200,8]);
+%       CCDATA = CC(DATA);
+%
+%
+%
+% (c) Michael Lustig 2013
