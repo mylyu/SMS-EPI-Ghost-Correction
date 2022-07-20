@@ -23,7 +23,7 @@ R_factor=2*nSeg;
 load_path=fullfile(LOAD_ROOT);
 %% load data and info according to MB_factor
 [MB_kxkyzsc,correspoding_single_slices,CAIPI_pattern]...
-    =MBGC_get_dataAndParmeters_20161102(MB_factor,load_path);
+    =MBGC_load_dataAndParmeters_20161102(MB_factor,load_path);
 MB_kxkyzsc=fft2c(LmyUtility.windows_filter_2d(ifft2c(MB_kxkyzsc),[nFE nPE],@(x)tukeywin(x,0.2)));
 nSlice=size(MB_kxkyzsc,3)*MB_factor;
 cmrr_kxkyzc_pos=squeeze(MB_kxkyzsc(:,:,:,1,:));
